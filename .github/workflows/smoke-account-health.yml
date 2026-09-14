@@ -1,0 +1,47 @@
+name: smoke-account-health
+run-name: smoke-account-health (1 job, no secrets)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke-ubuntu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: deterministic probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 --version
+          echo "smoke-ok $(date -u +%FT%TZ)"
+      - name: write smoke receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/smoke"
+          python3 - <<'PYEOF'
+          import json, platform, os, time
+          rec = {
+            "lane": "smoke-account-health",
+            "os": platform.platform(),
+            "py": platform.python_version(),
+            "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "result": "ok",
+            "runner": os.environ.get("RUNNER_NAME", ""),
+            "workflow": "smoke-account-health",
+          }
+          path = os.path.join(os.environ["RUNNER_TEMP"], "smoke", "smoke.json")
+          with open(path, "w", encoding="utf-8") as f:
+              json.dump(rec, f, indent=2)
+          print("receipt written:", path)
+          PYEOF
+      - name: Upload smoke receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: smoke-${{ github.run_id }}
+          path: ${{ runner.temp }}/smoke/smoke.json
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 9
