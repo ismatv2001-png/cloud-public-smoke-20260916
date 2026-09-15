@@ -1,0 +1,17 @@
+test_deletion_attempt_recorded (test_public_smoke.PublicSmokeTests.test_deletion_attempt_recorded) ... C:\Users\Administrador\Documents\Codex\deep seek harness\cloud-max-20260913\public-smoke-repo\test_public_smoke.py:24: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\Administrador\\Documents\\Codex\\deep seek harness\\cloud-max-20260913\\public-smoke-repo\\deletion-confirmation.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(ROOT, "deletion-confirmation.json"), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_public_job_executed_all_steps (test_public_smoke.PublicSmokeTests.test_public_job_executed_all_steps) ... C:\Users\Administrador\Documents\Codex\deep seek harness\cloud-max-20260913\public-smoke-repo\test_public_smoke.py:16: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\Administrador\\Documents\\Codex\\deep seek harness\\cloud-max-20260913\\public-smoke-repo\\run-34869320641-jobs.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(ROOT, "run-34869320641-jobs.json"), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_public_run_succeeded (test_public_smoke.PublicSmokeTests.test_public_run_succeeded) ... C:\Users\Administrador\Documents\Codex\deep seek harness\cloud-max-20260913\public-smoke-repo\test_public_smoke.py:11: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\Administrador\\Documents\\Codex\\deep seek harness\\cloud-max-20260913\\public-smoke-repo\\run-34869320641-jobs.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(ROOT, "run-34869320641-jobs.json"), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.018s
+
+OK

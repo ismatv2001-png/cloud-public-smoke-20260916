@@ -1,0 +1,7 @@
+{
+  "repo": "ismatv1512-ui/cloud-public-smoke-20260914",
+  "state": "repo publico efimero sigue existiendo; contiene SOLO workflow generico smoke-account-health.yml + README (sin codigo del propietario, sin secretos)",
+  "attemptedAt": "2026-09-14T16:34:22Z",
+  "result": "BLOQUEADO: HTTP 403 \"Must have admin rights to Repository. This API operation needs the delete_repo scope.\" Los tokens gh existentes (1512-ui: repo/workflow parcial; 2001-png: codespace,gist,read:org,repo,user,workflow) no tienen delete_repo. Borrado manual del propietario en web o device flow con scope delete_repo.",
+  "method": "gh repo delete --yes (cuenta ismatv1512-ui)"
+}
